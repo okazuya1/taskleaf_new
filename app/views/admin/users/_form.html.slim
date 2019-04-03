@@ -1,12 +1,12 @@
-- if user.errors.present?
+- if @user.errors.present?
   ul#error_explanation
-    - user.errors.full_messages.each do |message|
+    - @user.errors.full_messages.each do |message|
       li= message
 
-= form_with model: [:admin,user], local: true do |f|
+= form_with model: [:admin,@user], local: true do |f|
   .form-group
     =f.label :name,"名前"
-    =f.text_rield :name, class: "form-control"
+    =f.text_field :name, class: "form-control"
 
   .form-group
     =f.label :email,"メールアドレス"

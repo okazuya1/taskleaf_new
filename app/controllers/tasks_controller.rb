@@ -26,13 +26,13 @@ class TasksController < ApplicationController
   end
 
   def update
-    task.update!(task_params)
+    @task.update!(task_params)
     redirect_to @task, notice: "タスク「#{@task.name}｣を更新しました"
   end
 
   def destroy
-    task.destroy
-    redirect_to tasks_url, notice: "タスク「#{task.name}｣を更新しました"
+    @task.destroy
+    redirect_to tasks_url, notice: "タスク「#{@task.name}｣を削除しました"
   end
 
   private
@@ -42,6 +42,6 @@ class TasksController < ApplicationController
   end
 
   def set_task
-    current_user.tasks.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 end

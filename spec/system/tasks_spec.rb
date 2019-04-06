@@ -13,7 +13,7 @@ context 'ユーザーAがログインしているとき' do
  before do
  	visit login_path
  	fill_in 'メールアドレス', with: 'a@example.com'
- 	fill_in 'メールアドレス', with: 'password'
+ 	fill_in 'パスワード', with: 'password'
  	click_button 'ログインする'
  	#ユーザーAでログインする
  end

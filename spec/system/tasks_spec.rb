@@ -18,9 +18,18 @@ context 'ユーザーAがログインしているとき' do
  	#ユーザーAでログインする
  end
 
-  it 'ユーザーが作成したタスクが表示される' do
- 	expect(page).to have_content '最初のタスク'
- 	#作成済みのタスクの名称が画面表示されていることを確認
+ context 'ユーザーBがログインしているとき' do
+  before do
+ 	FactoryBot.create(:user, name: 'ユーザーB', email: 'b@example.com')
+ 	visit login_path
+ 	fill_in 'メールアドレス', with: 'b@example.com'
+ 	fill_in 'パスワード', with: 'password'
+ 	click_button 'ログインする'
+ 	ユーザーAでログインする
+ end
+
+  it 'ユーザーAが作成したタスクが表示されない' do
+ 	expect(page).to have_no_content '最初のタスク'
    end
   end
  end

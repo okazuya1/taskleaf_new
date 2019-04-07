@@ -25,11 +25,11 @@ context 'ユーザーAがログインしているとき' do
  	fill_in 'メールアドレス', with: 'b@example.com'
  	fill_in 'パスワード', with: 'password'
  	click_button 'ログインする'
- 	ユーザーAでログインする
  end
 
-  it 'ユーザーAが作成したタスクが表示されない' do
+   it 'ユーザーAが作成したタスクが表示されない' do
  	expect(page).to have_no_content '最初のタスク'
+    end
    end
   end
  end
